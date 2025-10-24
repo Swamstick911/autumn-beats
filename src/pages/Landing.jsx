@@ -33,6 +33,7 @@ const Landing = () => {
 
   return (
     <div className="relative h-screen w-full overflow-hidden bg-gradient-to-br from-orange-500 via-amber-400 to-yellow-400 text-white">
+      {/* Leaf Falling Animation */}
       {[...Array(NUM_LEAVES)].map((_, i) => (
         <img
           key={i}
@@ -42,6 +43,7 @@ const Landing = () => {
           className="absolute w-10 z-0"
         />
       ))}
+      {/* Titles and Buttons */}
       <div className="absolute inset-0 flex flex-col justify-center items-center text-center z-10">
         <h1 className="relative text-6xl font-extrabold drop-shadow-xl mb-4 z-10 flex justify-center items-center">Autumn Beats</h1>
         <p className="relative text-xl italic mb-8 z-10 flex justify-center items-center">Enter into the world of rhythm!</p>
@@ -57,6 +59,21 @@ const Landing = () => {
             How to Play?
           </button>
         </div>
+      </div>
+
+      {/* Footer */}
+      <div className="absolute bottom-4 w-full flex justify-center z-50 pointer-events-auto">
+        <p className="text-md opacity-60 text-black text-semibold">
+          Want to Contribute? See our{" "}
+          <a
+            href="https://github.com/Swamstick911/autumn-beats"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 underline hover:text-blue-800"
+          >
+            Github
+          </a>.
+        </p>
       </div>
     </div>
   );
