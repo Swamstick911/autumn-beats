@@ -1,10 +1,49 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
+import leaf from "../assets/leaf.png";
+import { gsap } from "gsap";
+
+const NUM_LEAVES = 10;
 
 const HowToPlay = () => {
+    const leavesRef = useRef([]);
+
+    useEffect(() => {
+    leavesRef.current.forEach((leaf) => {
+      gsap.fromTo(
+        leaf,
+        {
+          x: Math.random() * window.innerWidth,
+          y: -50,
+          rotation: Math.random() * 360,
+        },
+        {
+          y: window.innerHeight + 50,
+          x: `+=${Math.random() * 100 - 50}`, // horizontal sway
+          rotation: "+=" + (Math.random() * 360),
+          duration: Math.random() * 6 + 4,
+          repeat: -1,
+          ease: "none",
+          delay: Math.random() * 5,
+        }
+      );
+    });
+  }, []);
+
     return (
         <div className="relative h-screen w-full overflow-hidden bg-gradient-to-br from-orange-500 via-amber-400 to-yellow-400 text-black">
             {/* Main Heading */}
             <h1 className="pt-4 font-semibold justify-center flex">How to Play?</h1>
+
+            {/* Leaf Falling Animation */}
+                {[...Array(NUM_LEAVES)].map((_, i) => (
+                    <img
+                      key={i}
+                      ref={(el) => (leavesRef.current[i] = el)}
+                      src={leaf}
+                      alt="leaf"
+                      className="absolute w-10 z-0"
+                    />
+                ))}
 
             {/* Instructions */}
             <p className="text-3xl underline ml-8 mt-20">Introduction</p>

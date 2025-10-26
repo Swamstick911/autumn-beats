@@ -49,7 +49,7 @@ const Landing = () => {
         <p className="relative text-xl italic mb-8 z-10 flex justify-center items-center">Enter into the world of rhythm!</p>
         <div className="flex gap-6 relative z-10 justify-center items-center">
           <button
-            onClick={() => navigate("/game")} 
+            onClick={() => navigate("/songselection")} 
             className="px-6 py-3 rounded-xl font-semibold bg-gradient-to-br from-[#638603] to-[#81C91C] text-white hover:scale-110 transition">
             Enter the game
           </button>
@@ -59,6 +59,11 @@ const Landing = () => {
             How to Play?
           </button>
         </div>
+        <button
+          onClick={() => navigate("/settings")}
+          className="px-6 py-3 rounded-xl backdrop-blur-md border-2 hover:scale-110 transition bg-transparent border-black mt-3 text-black">
+            Settings
+          </button>
       </div>
 
       {/* Footer */}
