@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { songs } from "../data/songs";
+import { useTheme } from "../context/ThemeContext";
 
 const levels = ["Easy", "Medium", "Hard"];
 
 const SongSelection = () => {
+  const { theme } = useTheme();
   const navigate = useNavigate();
   const [selectedSong, setSelectedSong] = useState(null);
   const [selectedLevel, setSelectedLevel] = useState(0);
@@ -15,8 +17,8 @@ const SongSelection = () => {
   };
 
   return (
-    <div className="w-full h-screen bg-gradient-to-br from-orange-500 to-yellow-400 flex flex-col items-center justify-center text-white">
-      <h1 className="text-4xl mb-8 font-bold top-7">Select a Song</h1>
+    <div className={`w-full h-screen bg-gradient-to-br ${theme.gradient} ${theme.textColor} flex flex-col items-center justify-center`}>
+      <h1 className="text-4xl mb-8 font-bold">Select a Song</h1>
 
       <div className="flex gap-8 mb-8">
         {songs.map((song) => (
